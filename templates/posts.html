@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+Рецепты
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+<h1> Все рецепты на сайте! </h1>
+
+    {% if articles|length > 0 %}
+
+    {% for i in articles: %}
+        <div class="alert alert-info">
+            <h2> {{i.title}} </h2>
+            <p><b>{{ i.date.date() }}</b> </p>
+            <a class="btn btn-warning" href="/posts/{{i.id}}"> Открыть </a>
+        </div>
+    {% endfor %}
+
+    {% else %}
+    <p> У нас еще нет рецептов :(</p>
+    {% endif %}
+</div>
+{% endblock %}
